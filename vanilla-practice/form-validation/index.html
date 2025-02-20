@@ -32,6 +32,7 @@
                                 class="form-control"
                                 id="email"
                                 placeholder="name@example.com"
+                                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
                                 required
                             />
                         </div>
@@ -45,6 +46,7 @@
                                 maxlength="10"
                                 minlength="10"
                                 oninput="this.value=this.value.slice(0, this.maxLength)"
+                                pattern="^\d{10}$"
                                 required
                             />
                         </div>
@@ -65,7 +67,7 @@
                                 <th scope="col">Phone</th>
                             </tr>
                         </thead>
-                        <tbody id="tbody"></tbody>
+                        <tbody id="contactsTbody"></tbody>
                     </table>
                 </div>
             </div>

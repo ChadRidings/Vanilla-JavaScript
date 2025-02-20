@@ -2,7 +2,7 @@ function onReady() {
     // Query all of the accordion elements
     const accordions = document.querySelectorAll('.accordion');
 
-    // Collapse all accordions except the first one
+    // Collapse all accordions except the first one on initial load
     accordions.forEach((accordion, index) => {
         if (index === 0) {
             const description = accordion.querySelector('.description');

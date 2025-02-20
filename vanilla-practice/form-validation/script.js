@@ -3,12 +3,51 @@ function onReady() {
         e.preventDefault();
 
         // Get form values
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone').value;
+        const nameElement = document.getElementById('name');
+        const emailElement = document.getElementById('email');
+        const phoneElement = document.getElementById('phone');
+
+        const name = nameElement.value.trim();
+        const email = emailElement.value.trim();
+        const phone = phoneElement.value.trim();
+
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const phoneRegex = /^\d{10}$/;
+
+        /**
+         * Validation
+         * - Name: Required
+         * - Email: Required, Valid email
+         * - Phone: Required, 10 digits
+         * - add 'is-invalid' class to input if invalid
+         */
+        nameElement.classList.remove('is-invalid');
+        emailElement.classList.remove('is-invalid');
+        phoneElement.classList.remove('is-invalid');
+
+        if (!name) {
+            nameElement.classList.add('is-invalid');
+            return;
+        } else {
+            nameElement.classList.remove('is-invalid');
+        }
+
+        if (!email || !emailRegex.test(email)) {
+            emailElement.classList.add('is-invalid');
+            return;
+        } else {
+            nameElement.classList.remove('is-invalid');
+        }
+
+        if (!phone || !phoneRegex.test(phone)) {
+            phoneElement.classList.add('is-invalid');
+            return;
+        } else {
+            nameElement.classList.remove('is-invalid');
+        }
 
         // Add new contact to table
-        const tbody = document.getElementById('tbody');
+        const tbody = document.getElementById('contactsTbody');
         const tr = document.createElement('tr');
         tr.innerHTML = `
             <td>${name}</td>
@@ -19,6 +58,9 @@ function onReady() {
 
         // Reset (clear) form
         document.getElementById('contactForm').reset();
+        nameElement.classList.remove('is-invalid');
+        emailElement.classList.remove('is-invalid');
+        phoneElement.classList.remove('is-invalid');
     });
 }
 
