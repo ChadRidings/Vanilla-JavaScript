@@ -1,0 +1,54 @@
+/* Accordion Title */
+.accordion-title {
+    padding: 10px;
+    font-size: 1.5em;
+    color: #f28;
+}
+
+/* Accordion */
+.accordion {
+    position: relative;
+    border-bottom: 1px solid lightgray;
+}
+
+/* Title section */
+.accordion .title-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    position: relative;
+}
+
+/* Title text */
+.accordion .title-section .title {
+    flex-grow: 1;
+}
+
+/* Hide collapse icon by default */
+.accordion .title-section .collapse-icon {
+    display: none;
+}
+
+/* Expand/collapse icons */
+.accordion .title-section .expand-icon,
+.accordion .title-section .collapse-icon {
+    height: 20px;
+    width: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+}
+
+/* Description */
+.accordion .description {
+    text-align: left;
+    padding: 10px;
+    display: none;
+    transition: max-height 0.3s ease-out;
+}
