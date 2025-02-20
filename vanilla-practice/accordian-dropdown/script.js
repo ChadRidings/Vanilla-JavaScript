@@ -1,3 +1,5 @@
+'use strict';
+
 function onReady() {
     // Query all of the accordion elements
     const accordions = document.querySelectorAll('.accordion');

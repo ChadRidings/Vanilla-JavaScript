@@ -1,3 +1,5 @@
+'use strict';
+
 function onReady() {
     document.getElementById('contactForm').addEventListener('submit', (e) => {
         e.preventDefault();

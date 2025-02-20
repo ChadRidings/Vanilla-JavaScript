@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <title>Array Patterns</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row mt-5 mb-5">
+                <div class="col">
+                    <h1 class="title">Array Patterns (VanillaJS)</h1>
+
+                    <div class="row mt-3">
+                        <div class="col">
+                            <h5>Find the index and value of the largest number in an array</h5>
+                            <code class="code">
+                                const arr = [19, 37, 234, 37, 769, 13, 38, 95, 43, 987, 2, 16];<br />
+                                const largestValue = Math.max(...arr);<br />
+                                const largestIndex = arr.indexOf(largestValue);<br />
+                                console.log({ value: largestValue, index: largestIndex });<br />
+                                <mark><small>Output: { value: 987, index: 9 }</small></mark>
+                            </code>
+                            <hr />
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col">
+                            <h5>Find the index and value of the smallest number in an array</h5>
+                            <code class="code">
+                                const arr = [19, 37, 234, 37, 769, 13, 38, 95, 43, 987, 2, 16];<br />
+                                const smallestValue = Math.min(...arr);<br />
+                                const smallestIndex = arr.indexOf(smallestValue);<br />
+                                console.log({ value: smallestValue, index: smallestIndex });<br />
+                                <mark><small>Output: { value: 2, index: 10 }</small></mark>
+                            </code>
+                            <hr />
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col">
+                            <h5>Sort an array from the smallest value to the largest</h5>
+                            <em>use slice to create a new array before sorting (avoid mutating the original array)</em><br />
+                            <code class="code">
+                                const arr = [19, 37, 234, 37, 769, 13, 38, 95, 43, 987, 2, 16];<br />
+                                const sortedArr = arr.slice().sort((a, b) => a - b);<br />
+                                console.log(sortedArr);<br />
+                                console.log(arr);<br />
+                                <mark><small>Output: [2, 13, 16, 19, 37, 37, 38, 43, 95, 234, 769, 987]</small></mark><br />
+                                <mark><small>Output: [19, 37, 234, 37, 769, 13, 38, 95, 43, 987, 2, 16]</small></mark>
+                            </code>
+                            <hr />
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col">
+                            <h5>Sort an array from the largest value to the smallest</h5>
+                            <em>use slice to create a new array before sorting (avoid mutating the original array)</em><br />
+                            <code class="code">
+                                const arr = [19, 37, 234, 37, 769, 13, 38, 95, 43, 987, 2, 16];<br />
+                                const sortedArr = arr.slice().sort((a, b) => b - a);<br />
+                                console.log(sortedArr);<br />
+                                console.log(arr);<br />
+                                <mark><small>Output: [987, 769, 234, 95, 43, 38, 37, 37, 19, 16, 13, 2]</small></mark><br />
+                                <mark><small>Output: [19, 37, 234, 37, 769, 13, 38, 95, 43, 987, 2, 16]</small></mark>
+                            </code>
+                            <hr />
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col">
+                            <h5>Get the sum of all numbers in an array</h5>
+                            <code class="code">
+                                const arr = [19, 37, 234, 37, 769, 13, 38, 95, 43, 987, 2, 16];<br />
+                                const longhandSum = arr.reduce((acc, current) => acc + current, 0);<br />
+                                const shorthandSum = arr.reduce((a, b) => a + b, 0);<br />
+                                console.log(longhandSum);<br />
+                                console.log(shorthandSum);<br />
+                                <mark><small>Output: 2389</small></mark><br />
+                                <mark><small>Output: 2389</small></mark>
+                            </code>
+                            <hr />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5 mb-5">
+                <div class="col text-center">
+                    <a href="../index.html" class="btn btn-primary">
+                        <i class="bi bi-arrow-left"></i>
+                        Homepage
+                    </a>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script src="./script.js"></script>
+</html>
