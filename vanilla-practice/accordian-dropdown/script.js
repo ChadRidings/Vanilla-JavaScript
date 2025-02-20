@@ -16,7 +16,7 @@ function onReady() {
     });
 
     // Function to toggle the visibility of the description and icons
-    function toggleAccordion(selectedAccordion) {
+    const toggleAccordion = (selectedAccordion) => {
         accordions.forEach((accordion) => {
             const description = accordion.querySelector('.description');
             const expandIcon = accordion.querySelector('.expand-icon');
