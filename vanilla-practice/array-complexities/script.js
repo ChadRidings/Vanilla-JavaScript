@@ -28,7 +28,7 @@ function onReady() {
     // Flatten to an array
     const result = Object.values(lowestVendorsPerProduct).flat();
 
-    console.log(JSON.stringify(result, null, 2)); // prettier-ignore result);
+    console.log(result);
 }
 
 if (document.readyState !== 'loading') {
