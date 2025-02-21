@@ -1,5 +1,11 @@
 'use strict';
 
+/**
+ * Array Complexities
+ * Input: An array of products with vendor, product type, price, and SKU.
+ * Goal: Write a function to find the lowest-cost product per product type and include all vendors that offer it at that lowest price.
+ */
+
 function onReady() {
     const products = [
         { vendor: 'A', product: 'Widget', price: 10, sku: '00123' },
@@ -13,7 +19,6 @@ function onReady() {
         { vendor: 'C', product: 'Gadget', price: 12, sku: '00648' }
     ];
 
-    // Find the lowest-cost product per product type and include all vendors that offer it at that lowest price.
     const lowestVendorsPerProduct = products.reduce((acc, item) => {
         const { product, price } = item;
 
