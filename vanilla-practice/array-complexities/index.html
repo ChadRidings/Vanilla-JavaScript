@@ -58,14 +58,18 @@
                                 <mark>
                                     <small>
                                         Output (lowestVendorsPerProduct before flattening and result after flattening):<br /><br />
-                                        lowestVendorsPerProduct  {<br />
+                                        lowestVendorsPerProduct {<br />
                                         &nbsp;&nbsp;&nbsp;&nbsp;"Widget": [<br />
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ "vendor": "A", "product": "Widget", "price": 5, "sku": "00235" },<br />
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ "vendor": "A", "product": "Widget", "price": 5, "sku": "00946" },<br />
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ "vendor": "C", "product": "Widget", "price": 5, "sku": "003498" }<br />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ "vendor": "A", "product": "Widget", "price": 5,
+                                        "sku": "00235" },<br />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ "vendor": "A", "product": "Widget", "price": 5,
+                                        "sku": "00946" },<br />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ "vendor": "C", "product": "Widget", "price": 5,
+                                        "sku": "003498" }<br />
                                         &nbsp;&nbsp;&nbsp;&nbsp;],<br />
                                         &nbsp;&nbsp;&nbsp;&nbsp;"Gadget": [<br />
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ "vendor": "C", "product": "Gadget", "price": 12, "sku": "00648" }<br />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ "vendor": "C", "product": "Gadget", "price": 12,
+                                        "sku": "00648" }<br />
                                         &nbsp;&nbsp;&nbsp;&nbsp;]<br />
                                         }<br />
                                         <br />
@@ -86,31 +90,31 @@
                             <h6>Step-by-Step Breakdown</h6>
                             <ol>
                                 <li>
-                                    Initialize an empty object to store the lowest price per product type. This object will be used to
-                                    store the lowest price for each product type.
+                                    Initialize an empty object to store the lowest price per product type. This object will be used to store
+                                    the lowest price for each product type.
                                 </li>
+                                <li>Use the <code>reduce</code> method to iterate over the <code>products</code> array.</li>
+                                <li>Destructure the <code>product</code> and <code>price</code> properties from the current item.</li>
                                 <li>
-                                    Use the <code>reduce</code> method to iterate over the <code>products</code> array.
-                                </li>
-                                <li>
-                                    Destructure the <code>product</code> and <code>price</code> properties from the current item.
-                                </li>
-                                <li>
-                                    Check if the product type is not in the <code>lowestVendorsPerProduct</code> object or if the
-                                    current price is less than the lowest price found for that product type.
+                                    Check if the product type is not in the <code>lowestVendorsPerProduct</code> object or if the current
+                                    price is less than the lowest price found for that product type.
                                 </li>
                                 <li>
                                     If the above condition is true, set the product type as the key in the
-                                    <code>lowestVendorsPerProduct</code> object and create a new array with the current item as the
-                                    value.
+                                    <code>lowestVendorsPerProduct</code> object and create a new array with the current item as the value.
                                 </li>
                                 <li>
-                                    If the above condition is false, check if the current price is equal to the lowest price found for
-                                    that product type. If they are equal, add the current item to the existing array for that product type.
+                                    If the above condition is false, check if the current price is equal to the lowest price found for that
+                                    product type. If they are equal, add the current item to the existing array for that product type.
                                 </li>
                                 <li>
                                     Return the <code>lowestVendorsPerProduct</code> object, which contains the lowest price per product
                                     type.
+                                </li>
+                                <li>
+                                    Use the <code>Object.values</code> method to get an array of the values in the
+                                    <code>lowestVendorsPerProduct</code> object. Then use the <code>flat</code> method to flatten the array
+                                    of arrays into a single array of objects named <code>result</code>.
                                 </li>
                             </ol>
                         </div>
