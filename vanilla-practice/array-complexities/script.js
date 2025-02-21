@@ -13,6 +13,7 @@ function onReady() {
         { vendor: 'C', product: 'Gadget', price: 12, sku: '00648' }
     ];
 
+    // Find the lowest-cost product per product type and include all vendors that offer it at that lowest price.
     const lowestVendorsPerProduct = products.reduce((acc, item) => {
         const { product, price } = item;
 
@@ -25,10 +26,12 @@ function onReady() {
         return acc;
     }, {});
 
+    console.log('lowestVendorsPerProduct ', lowestVendorsPerProduct);
+
     // Flatten to an array
     const result = Object.values(lowestVendorsPerProduct).flat();
 
-    console.log(result);
+    console.log('result ', result);
 }
 
 if (document.readyState !== 'loading') {

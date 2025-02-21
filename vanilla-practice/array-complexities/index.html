@@ -49,14 +49,27 @@
                                 &nbsp;&nbsp;&nbsp;&nbsp;return acc;<br />
                                 }, {});<br />
                                 <br />
-                                // Flatten to an array<br />
+                                console.log('lowestVendorsPerProduct ', lowestVendorsPerProduct);<br />
+                                <br />
+                                // Flatten to an array using only the object values<br />
                                 const result = Object.values(lowestVendorsPerProduct).flat();<br />
                                 <br />
-                                console.log(result);<br />
+                                console.log('result ', result);<br />
                                 <mark>
                                     <small>
-                                        Output:<br />
-                                        [<br />
+                                        Output (before flattening and after flattening):<br /><br />
+                                        lowestVendorsPerProduct  {<br />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;"Widget": [<br />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ "vendor": "A", "product": "Widget", "price": 5, "sku": "00235" },<br />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ "vendor": "A", "product": "Widget", "price": 5, "sku": "00946" },<br />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ "vendor": "C", "product": "Widget", "price": 5, "sku": "003498" }<br />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;],<br />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;"Gadget": [<br />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ "vendor": "C", "product": "Gadget", "price": 12, "sku": "00648" }<br />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;]<br />
+                                        }<br />
+                                        <br />
+                                        result [<br />
                                         &nbsp;&nbsp;&nbsp;&nbsp;{ "vendor": "A", "product": "Widget", "price": 5, "sku": "00235" },<br />
                                         &nbsp;&nbsp;&nbsp;&nbsp;{ "vendor": "A", "product": "Widget", "price": 5, "sku": "00946" },<br />
                                         &nbsp;&nbsp;&nbsp;&nbsp;{ "vendor": "C", "product": "Widget", "price": 5, "sku": "003498" },<br />
