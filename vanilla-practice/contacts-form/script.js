@@ -12,8 +12,8 @@ function onReady() {
         const name = nameElement.value.trim();
         const email = emailElement.value.trim();
         const phone = phoneElement.value.trim();
-
-        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        
+        const emailRegex = /^[a-zA-Z0-9._%+]+@[a-zA-Z0-9.]+\.[a-zA-Z]{2,}$/;
         const phoneRegex = /^\d{10}$/;
 
         /**

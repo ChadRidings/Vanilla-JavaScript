@@ -28,18 +28,17 @@
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>
                             <input
-                                type="email"
                                 class="form-control"
                                 id="email"
+                                pattern="^[a-zA-Z0-9._%+]+@[a-zA-Z0-9.]+\.[a-zA-Z]{2,}$"
                                 placeholder="name@example.com"
-                                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                                type="email"
                                 required
                             />
                         </div>
                         <div class="mb-3">
                             <label for="phone" class="form-label">Phone Number</label>
                             <input
-                                type="number"
                                 class="form-control"
                                 id="phone"
                                 placeholder="1112223333"
@@ -47,6 +46,7 @@
                                 minlength="10"
                                 oninput="this.value=this.value.slice(0, this.maxLength)"
                                 pattern="^\d{10}$"
+                                type="number"
                                 required
                             />
                         </div>
