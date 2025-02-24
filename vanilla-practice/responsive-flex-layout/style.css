@@ -1,0 +1,84 @@
+/*
+    RESET ELEMENTS
+*/
+html,
+body,
+div,
+span {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+    FULL WIDTH BANNER
+*/
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: cadetblue;
+    background-image: url(../assets/images/rock.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 300px;
+    max-height: 300px;
+    margin: 0;
+    padding: 0;
+}
+/* dim the banners background image */
+.banner .overlay {
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #eee;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* banner content */
+.banner .overlay .banner-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1280px;
+}
+.banner .overlay .banner-content .content-block {
+    padding: 10px;
+    margin: 10px;
+    background-color: rgba(251, 4, 214, 0.5);
+    color: #eee;
+}
+
+/*
+    MAIN CONTAINER
+*/
+.main-container {
+    background-color: #222;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 100%;
+}
+
+.title {
+    padding: 10px;
+    font-size: 1.5em;
+    color: #f28;
+    text-align: center;
+}
