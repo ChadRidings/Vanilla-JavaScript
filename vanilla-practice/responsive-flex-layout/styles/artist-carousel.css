@@ -1,0 +1,102 @@
+/*
+    ARTIST CAROUSEL
+*/
+
+.artist-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.artist-header .title {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+    margin: 10px;
+}
+.artist-header .title h1 {
+    font-size: 1.5em;
+    color: #f28;
+}
+.artist-header .artist-controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+}
+.artist-header .artist-controls i {
+    font-size: 1.5em;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.artist-header .artist-controls i:hover {
+    color: #95d2d7;
+}
+
+.artist-carousel {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+.artist-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.artist-carousel .artist {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    color: #eee;
+}
+
+.artist-carousel .artist .image {
+    width: 150px;
+    border-radius: 50%;
+    position: relative;
+}
+.artist-carousel .artist .image img {
+    width: 150px;
+    border-radius: 50%;
+}
+.artist-carousel .artist .image .overlay {
+    display: none;
+}
+.artist-carousel .artist .image:hover .overlay {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+}
+.artist-carousel .artist .image:hover .overlay i {
+    color: #fff;
+    font-size: 3em;
+    cursor: pointer;
+}
+
+.artist-carousel .artist-name {
+    text-align: center;
+}
+.artist-carousel .artist-name a {
+    text-decoration: none;
+    color: #fff;
+}
+.artist-carousel .artist-name a:hover {
+    text-decoration: underline;
+}

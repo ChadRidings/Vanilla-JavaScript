@@ -5,6 +5,16 @@
 html,
 body,
 div,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
 span {
     margin: 0;
     padding: 0;
@@ -21,6 +31,28 @@ body {
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    text-decoration: none;
+    color: #95d2d7;
+}
+a:hover {
+    color: #fff;
+}
+
+button.header-button {
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 25px;
+    padding: 10px 20px;
+    color: #95d2d7;
+    border: 2px solid #95d2d7;
+    background-color: #000;
+}
+button.header-button:hover {
+    background-color: #111;
+    color: #95d2d7;
 }
 
 /* 
@@ -107,7 +139,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #000;
-    background-image: url(../assets/images/rock.jpg);
+    background-image: url(../../assets/images/rock.jpg);
     background-size: cover;
     background-position: center;
     border-bottom: 1px solid #333;
@@ -210,17 +242,14 @@ body {
     margin: 0 0 10px;
 }
 .footer .footer-content .footer-block a {
-    color: rgb(255, 34, 136);
+    color: #95d2d7;
     text-decoration: none;
 }
 .footer .footer-content .footer-block a:hover {
-    color: rgba(255, 34, 136, 0.6);
+    color: #fff;
     text-decoration: underline;
 }
 
-.title {
-    padding: 10px;
-    font-size: 1.5em;
-    color: #f28;
-    text-align: center;
-}
+/*
+    MEDIA QUERIES
+*/
