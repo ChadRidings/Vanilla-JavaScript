@@ -106,10 +106,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: cadetblue;
+    background-color: #000;
     background-image: url(../assets/images/rock.jpg);
     background-size: cover;
     background-position: center;
+    border-bottom: 1px solid #333;
     width: 100%;
     height: 300px;
     max-height: 300px;
@@ -162,7 +163,7 @@ body {
     justify-content: flex-start;
     margin: 0 auto;
     max-width: 1280px;
-    min-height: 800px;
+    min-height: 400px;
     overflow: hidden;
     padding: 20px;
     width: 100%;
@@ -178,6 +179,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #000;
+    border-top: 1px solid #333;
     width: 100%;
     padding: 50px 0;
 }
