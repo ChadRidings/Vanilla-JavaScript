@@ -1,6 +1,7 @@
 /*
     RESET ELEMENTS
 */
+
 html,
 body,
 div,
@@ -17,13 +18,39 @@ body {
     background-color: #000;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
         'Helvetica Neue', sans-serif;
+    font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+/* 
+    NAVIGATION BAR
+*/
+
+.navigation-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    background-color: cadetblue;
+}
+.navigation-bar .logo {
+    padding: 0;
+    margin: 0;
+}
+.navigation-bar .logo img {
+    width: 100px;
+    height: 50px;
 }
 
 /*
     FULL WIDTH BANNER
 */
+
 .banner {
     display: flex;
     justify-content: center;
@@ -66,14 +93,75 @@ body {
 /*
     MAIN CONTAINER
 */
+
 .main-container {
-    background-color: #222;
+    background: rgb(17, 17, 17);
+    background: linear-gradient(0deg, rgba(9, 9, 9, 1) 0%, rgba(0, 0, 0, 1) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.container {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0 auto;
+    max-width: 1280px;
+    min-height: 800px;
+    overflow: hidden;
+    padding: 20px;
+    width: 100%;
+}
+
+/*
+    FOOTER
+*/
+
+.footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0 auto;
+    align-items: center;
+    background-color: #000;
+    width: 100%;
+}
+.footer .copyright {
+    color: #eee;
+    font-size: 0.8em;
+    font-style: italic;
+    padding: 10px;
+    text-align: center;
+}
+.footer .footer-content {
+    color: #eee;
+    display: flex;
+    flex-direction: row;
+    font-size: 0.8em;
+    justify-content: center;
+    align-items: flex-start;
     max-width: 1280px;
     width: 100%;
+}
+.footer .footer-content .footer-block {
+    margin: 20px;
+}
+.footer .footer-content .footer-block h6 {
+    /* color: #eee; */
+    font-size: 1.1em;
+    padding: 0;
+    margin: 0 0 10px;
+}
+.footer .footer-content .footer-block a {
+    color: rgb(255, 34, 136);
+    text-decoration: none;
+}
+.footer .footer-content .footer-block a:hover {
+    color: rgba(255, 34, 136, 0.6);
+    text-decoration: underline;
 }
 
 .title {
