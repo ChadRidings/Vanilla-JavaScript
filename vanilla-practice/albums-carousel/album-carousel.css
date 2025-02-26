@@ -15,8 +15,8 @@
     margin: 10px;
 }
 .album-header .title h1 {
-    font-family: 'Helvetica', Arial, sans-serif;
-    font-size: 1.5em;
+    font-family: 'Bebas Neue', serif;
+    font-size: 1.8em;
     font-weight: normal;
     color: #f28;
 }
@@ -63,7 +63,7 @@
 
 .album-carousel .album .image {
     width: 150px;
-    border-radius: 50%;
+    border-radius: 5px;
     position: relative;
 }
 .album-carousel .album .image img {
