@@ -1,43 +1,43 @@
 /*
-    ARTIST CAROUSEL
+    ALBUM CAROUSEL
 */
 
-.artist-header {
+.album-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
-.artist-header .title {
+.album-header .title {
     display: flex;
     justify-content: flex-start;
     padding: 10px;
     margin: 10px;
 }
-.artist-header .title h1 {
+.album-header .title h1 {
     font-family: 'Helvetica', Arial, sans-serif;
     font-size: 1.5em;
     font-weight: normal;
     color: #f28;
 }
-.artist-header .artist-controls {
+.album-header .album-controls {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     padding: 10px;
     margin: 10px;
 }
-.artist-header .artist-controls i {
+.album-header .album-controls i {
     font-size: 1.5em;
     color: #fff;
     cursor: pointer;
     margin-right: 10px;
 }
-.artist-header .artist-controls i:hover {
+.album-header .album-controls i:hover {
     color: #95d2d7;
 }
 
-.artist-carousel {
+.album-carousel {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -47,11 +47,11 @@
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
 }
-.artist-carousel::-webkit-scrollbar {
+.album-carousel::-webkit-scrollbar {
     display: none;
 }
 
-.artist-carousel .artist {
+.album-carousel .album {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -61,19 +61,19 @@
     color: #eee;
 }
 
-.artist-carousel .artist .image {
+.album-carousel .album .image {
     width: 150px;
     border-radius: 50%;
     position: relative;
 }
-.artist-carousel .artist .image img {
+.album-carousel .album .image img {
     width: 150px;
-    border-radius: 50%;
+    border-radius: 5px;
 }
-.artist-carousel .artist .image .overlay {
+.album-carousel .album .image .overlay {
     display: none;
 }
-.artist-carousel .artist .image:hover .overlay {
+.album-carousel .album .image:hover .overlay {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -84,16 +84,25 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
+    border-radius: 5px;
 }
-.artist-carousel .artist .image:hover .overlay i {
+.album-carousel .album .image:hover .overlay i {
     color: #fff;
     font-size: 3em;
     cursor: pointer;
 }
 
-.artist-carousel .artist .artist-name {
-    font-size: 0.9em;
-    text-align: center;
+.album-carousel .artist-name,
+.album-carousel .album-name {
+    text-align: left;
     margin-top: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 150px;
+}
+.album-carousel .artist-name {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8em;
+    margin-top: 0;
 }

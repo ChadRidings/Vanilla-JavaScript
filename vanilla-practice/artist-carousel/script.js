@@ -4,34 +4,34 @@ function onReady() {
     /**
      * ARTIST CAROUSEL
      */
-    const carousel = document.querySelector('.artist-carousel');
-    const leftChevron = document.querySelector('.bi-chevron-left');
-    const rightChevron = document.querySelector('.bi-chevron-right');
+    const artistCarousel = document.querySelector('.artist-carousel');
+    const artistLeftChevron = document.querySelector('.artist-controls .bi-chevron-left');
+    const artistRightChevron = document.querySelector('.artist-controls .bi-chevron-right');
 
-    const itemWidth = 150; // width of each artist card
-    const scrollAmount = itemWidth * 4; // scroll 4 items at a time
+    const artistItemWidth = 150; // width of each artist card
+    const artistScrollAmount = artistItemWidth * 4; // scroll 4 items at a time
 
-    leftChevron.addEventListener('click', () => {
-        const currentScrollLeft = carousel.scrollLeft;
-        const newScrollLeft = currentScrollLeft - scrollAmount;
+    artistLeftChevron.addEventListener('click', () => {
+        const currentScrollLeft = artistCarousel.scrollLeft;
+        const newScrollLeft = currentScrollLeft - artistScrollAmount;
 
         if (newScrollLeft < 0) {
-            carousel.scrollLeft = 0;
+            artistCarousel.scrollLeft = 0;
         } else {
-            carousel.scrollLeft = newScrollLeft;
+            artistCarousel.scrollLeft = newScrollLeft;
         }
     });
 
-    rightChevron.addEventListener('click', () => {
-        const currentScrollLeft = carousel.scrollLeft;
-        const newScrollLeft = currentScrollLeft + scrollAmount;
-        const lastArtistCard = carousel.children[carousel.children.length - 1];
+    artistRightChevron.addEventListener('click', () => {
+        const currentScrollLeft = artistCarousel.scrollLeft;
+        const newScrollLeft = currentScrollLeft + artistScrollAmount;
+        const lastArtistCard = artistCarousel.children[artistCarousel.children.length - 1];
         const lastArtistCardRight = lastArtistCard.offsetLeft + lastArtistCard.offsetWidth;
 
-        if (lastArtistCardRight > carousel.offsetLeft + carousel.offsetWidth + newScrollLeft) {
-            carousel.scrollLeft = newScrollLeft;
+        if (lastArtistCardRight > artistCarousel.offsetLeft + artistCarousel.offsetWidth + newScrollLeft) {
+            artistCarousel.scrollLeft = newScrollLeft;
         } else {
-            carousel.scrollLeft = lastArtistCardRight - carousel.offsetWidth;
+            artistCarousel.scrollLeft = lastArtistCardRight - artistCarousel.offsetWidth;
         }
     });
 }

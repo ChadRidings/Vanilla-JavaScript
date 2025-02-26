@@ -92,13 +92,8 @@
     cursor: pointer;
 }
 
-.artist-carousel .artist-name {
+.artist-carousel .artist .artist-name {
+    font-size: 0.9em;
     text-align: center;
-}
-.artist-carousel .artist-name a {
-    text-decoration: none;
-    color: #fff;
-}
-.artist-carousel .artist-name a:hover {
-    text-decoration: underline;
+    margin-top: 10px;
 }
