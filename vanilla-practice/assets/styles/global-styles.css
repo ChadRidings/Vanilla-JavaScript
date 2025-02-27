@@ -38,11 +38,13 @@ span {
 
 body {
     background-color: #000;
+    background: linear-gradient(0deg, rgba(9, 9, 9, 1) 0%, rgba(0, 0, 0, 1) 50.5%);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
         'Helvetica Neue', sans-serif;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: #eee;
 }
 
 a {
@@ -72,8 +74,6 @@ button.header-button:hover {
 */
 
 .main-container {
-    background: rgb(17, 17, 17);
-    background: linear-gradient(0deg, rgba(9, 9, 9, 1) 0%, rgba(0, 0, 0, 1) 100%);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
