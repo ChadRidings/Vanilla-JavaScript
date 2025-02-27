@@ -1,0 +1,117 @@
+/*
+    TRACKS CAROUSEL
+*/
+
+.tracks-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.tracks-header .title {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+    margin: 10px;
+}
+.tracks-header .title h1 {
+    font-family: 'Bebas Neue', serif;
+    font-size: 1.8em;
+    font-weight: normal;
+    color: #f28;
+}
+.tracks-header .tracks-controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+}
+.tracks-header .tracks-controls i {
+    font-size: 1.5em;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.tracks-header .tracks-controls i:hover {
+    color: #95d2d7;
+}
+
+.tracks-carousel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+.tracks-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.tracks-carousel .track {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    color: #eee;
+}
+
+.tracks-carousel .track .image {
+    width: 50px;
+    border-radius: 5px;
+    margin-right: 10px;
+    position: relative;
+}
+.tracks-carousel .track .image img {
+    width: 50px;
+    border-radius: 5px;
+}
+.tracks-carousel .track .image .overlay {
+    display: none;
+}
+.tracks-carousel .track .image:hover .overlay {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+.tracks-carousel .track .image:hover .overlay i {
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.track-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.tracks-carousel .track .track-info .artist-name,
+.tracks-carousel .track .track-info .track-name {
+    font-size: 0.8em;
+    text-align: left;
+    margin-top: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 200px;
+}
+.tracks-carousel .track .track-info .artist-name {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8em;
+    margin-top: 0;
+}
