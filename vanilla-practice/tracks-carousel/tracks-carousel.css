@@ -47,7 +47,7 @@
     overflow-y: hidden;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
-    height: 250px;
+    height: 260px;
     padding: 0 20px;
 }
 .tracks-carousel::-webkit-scrollbar {
