@@ -18,7 +18,7 @@
     font-family: 'Bebas Neue', serif;
     font-size: 1.8em;
     font-weight: normal;
-    color: #f28;
+    color: #eee;
 }
 .tracks-header .tracks-controls {
     display: flex;
@@ -47,7 +47,8 @@
     overflow-y: hidden;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
-    height: 300px;
+    height: 250px;
+    padding: 0 20px;
 }
 .tracks-carousel::-webkit-scrollbar {
     display: none;
