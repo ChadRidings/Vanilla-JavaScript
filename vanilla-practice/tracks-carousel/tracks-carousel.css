@@ -39,14 +39,15 @@
 
 .tracks-carousel {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     overflow-x: scroll;
     overflow-y: hidden;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
+    height: 300px;
 }
 .tracks-carousel::-webkit-scrollbar {
     display: none;
@@ -55,21 +56,22 @@
 .tracks-carousel .track {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    padding: 10px;
+    padding: 0;
     margin: 10px;
     color: #eee;
+    width: 300px;
 }
 
 .tracks-carousel .track .image {
-    width: 50px;
+    width: 60px;
     border-radius: 5px;
     margin-right: 10px;
     position: relative;
 }
 .tracks-carousel .track .image img {
-    width: 50px;
+    width: 60px;
     border-radius: 5px;
 }
 .tracks-carousel .track .image .overlay {
@@ -98,13 +100,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    height: 60px;
 }
 .tracks-carousel .track .track-info .artist-name,
 .tracks-carousel .track .track-info .track-name {
     font-size: 0.8em;
     text-align: left;
-    margin-top: 10px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;

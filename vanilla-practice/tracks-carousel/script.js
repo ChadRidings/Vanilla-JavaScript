@@ -2,36 +2,36 @@
 
 function onReady() {
     /**
-     * ALBUM CAROUSEL
+     * TRACKS CAROUSEL
      */
-    const albumCarousel = document.querySelector('.album-carousel');
-    const albumLeftChevron = document.querySelector('.album-controls .bi-chevron-left');
-    const albumRightChevron = document.querySelector('.album-controls .bi-chevron-right');
+    const tracksCarousel = document.querySelector('.tracks-carousel');
+    const tracksLeftChevron = document.querySelector('.tracks-controls .bi-chevron-left');
+    const tracksRightChevron = document.querySelector('.tracks-controls .bi-chevron-right');
 
-    const albumItemWidth = 150; // width of each artist card
-    const albumScrollAmount = albumItemWidth * 4; // scroll 4 items at a time
+    const tracksItemsWidth = 300; // width of each track card
+    const tracksScrollAmount = tracksItemsWidth * 1; // scroll 1 column of items at a time
 
-    albumLeftChevron.addEventListener('click', () => {
-        const currentScrollLeft = albumCarousel.scrollLeft;
-        const newScrollLeft = currentScrollLeft - albumScrollAmount;
+    tracksLeftChevron.addEventListener('click', () => {
+        const currentScrollLeft = tracksCarousel.scrollLeft;
+        const newScrollLeft = currentScrollLeft - tracksScrollAmount;
 
         if (newScrollLeft < 0) {
-            albumCarousel.scrollLeft = 0;
+            tracksCarousel.scrollLeft = 0;
         } else {
-            albumCarousel.scrollLeft = newScrollLeft;
+            tracksCarousel.scrollLeft = newScrollLeft;
         }
     });
 
-    albumRightChevron.addEventListener('click', () => {
-        const currentScrollLeft = albumCarousel.scrollLeft;
-        const newScrollLeft = currentScrollLeft + albumScrollAmount;
-        const lastArtistCard = albumCarousel.children[albumCarousel.children.length - 1];
+    tracksRightChevron.addEventListener('click', () => {
+        const currentScrollLeft = tracksCarousel.scrollLeft;
+        const newScrollLeft = currentScrollLeft + tracksScrollAmount;
+        const lastArtistCard = tracksCarousel.children[tracksCarousel.children.length - 1];
         const lastArtistCardRight = lastArtistCard.offsetLeft + lastArtistCard.offsetWidth;
 
-        if (lastArtistCardRight > albumCarousel.offsetLeft + albumCarousel.offsetWidth + newScrollLeft) {
-            albumCarousel.scrollLeft = newScrollLeft;
+        if (lastArtistCardRight > tracksCarousel.offsetLeft + tracksCarousel.offsetWidth + newScrollLeft) {
+            tracksCarousel.scrollLeft = newScrollLeft;
         } else {
-            albumCarousel.scrollLeft = lastArtistCardRight - albumCarousel.offsetWidth;
+            tracksCarousel.scrollLeft = lastArtistCardRight - tracksCarousel.offsetWidth;
         }
     });
 }
