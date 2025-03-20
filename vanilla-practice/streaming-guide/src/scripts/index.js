@@ -2,34 +2,31 @@
 
 import '../styles/main.scss';
 
-// Constants
+/**
+ * Constants
+ */
 const API_URL = 'https://d1q0vy0v52gyjr.cloudfront.net/hub.json';
 const TILE_IMG_WIDTH = 300;
 const TILE_IMG_HEIGHT = 150;
 const TILE_IMG_FORMAT = 'jpeg';
 
-// When the DOM is ready
+/**
+ * When the DOM is ready
+ */
 function onReady() {
-    let guideData = {};
-    let components = [];
 
-    /**
-     * Fetch and set initial data
-     */
+    // Fetch and set initial data
     fetch(API_URL)
         .then((response) => response.json())
         .then((data) => {
-            guideData = data;
-            components = [...data.components];
+            const guideData = data;
+            const components = [...data.components];
 
-            /**
-             * Build the guide and components if data is available
-             */
+            // Filter out components with no items
+            const filteredComponents = components.filter((component) => component.items.length > 0);
+
+            // Build the guide and components if data is available
             if (guideData && components) {
-                console.log('Guide Data: ', guideData);
-                console.log('Guide Components Data: ', components);
-
-                // render the guide
                 const guideContainer = document.getElementById('guide');
                 guideContainer.insertAdjacentHTML(
                     'afterbegin',
@@ -40,9 +37,8 @@ function onReady() {
                 `
                 );
 
-                // render the components
                 const componentsContainer = document.getElementById('components');
-                components.forEach((component) => {
+                filteredComponents.forEach((component) => {
                     componentsContainer.innerHTML +=
                         `
                         <div class="component">
@@ -70,10 +66,14 @@ function onReady() {
                         </div>`;
                 });
             }
+        }).catch((error) => {
+            console.error(error);
         });
 }
 
-// Check if the DOM is Ready
+/**
+ * Check if the DOM is Ready
+ */
 if (document.readyState !== 'loading') {
     onReady();
 } else {
