@@ -35,7 +35,7 @@ function onReady() {
                     'afterbegin',
                     `
                     <div class="heading">
-                        <h1 class="heading__title">${guideData.name}</h1>
+                        <h1 class="screen-title">${guideData.name}</h1>
                     </div>
                 `
                 );
