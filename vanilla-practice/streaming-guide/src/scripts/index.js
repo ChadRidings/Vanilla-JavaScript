@@ -1,61 +1,61 @@
 'use strict';
 
 import '../styles/main.scss';
-
-/**
- * Constants
- */
-const API_URL = 'https://d1q0vy0v52gyjr.cloudfront.net/hub.json';
-const COLLECTIONS_URL = 'https://d1q0vy0v52gyjr.cloudfront.net/collections/';
-const TILE_IMG_WIDTH = 300;
-const TILE_IMG_HEIGHT = 150;
-const TILE_IMG_FORMAT = 'jpeg';
+import {
+    API_URL,
+    TILE_IMG_WIDTH,
+    TILE_IMG_HEIGHT,
+    TILE_IMG_FORMAT
+} from './constants';
 
 /**
  * When the DOM is ready
  */
 function onReady() {
+    // This holds the clean data we serve to the render
+    let allComponents = [];
 
     // Fetch and set initial data
     fetch(API_URL)
-        .then((response) => response.json())
-        .then((data) => {
-            if (data) {
-                processData(data);
-            }
-        }).catch((error) => {
-            console.error(error);
-        });
+    .then((response) => response.json())
+    .then((data) => {
+        if (data) {
+            processData(data);
+        }
+    }).catch((error) => {
+        console.error(error);
+    });
 
+    // Process data for the renders
     const processData = (data) => {
         renderHeading(data);
 
-        const components = [...data.components];
-
         // Filter components with and without items
+        const components = [...data.components];
         const filteredComponents = components.filter((component) => component.items.length > 0);
         const missingCollections = components.filter((component) => component.items.length === 0);
-        let allComponents = [...filteredComponents];
+        allComponents = [...filteredComponents];
 
-        async function processMissingCollection() {
+        const processMissingCollection = async () => {
             // use promises to assure new collections have been added to the allComponents array before calling renderCollections
-            const promises = missingCollections.map((collection) => {
-                return fetch(collection.href)
-                    .then((response) => response.json())
-                    .then((data) => {
-                        allComponents.push(data);
-                    }).catch((error) => {
-                        console.error(error);
-                    });
+            const promises = missingCollections.map(async (collection) => {
+                try {
+                    const response = await fetch(collection.href);
+                    const data = await response.json();
+                    allComponents.push(data);
+                } catch (error) {
+                    console.error(error);
+                }
             });
             
             await Promise.all(promises);
             renderCollections(allComponents);
         }
-            
+
         processMissingCollection();
     }
 
+    // Render heading data
     const renderHeading = (data) => {
         const guideContainer = document.getElementById('guide');
         guideContainer.insertAdjacentHTML(
@@ -68,6 +68,7 @@ function onReady() {
         );
     };
 
+    // Render collection data
     const renderCollections = (allComponents) => {
         const componentsContainer = document.getElementById('components');
         allComponents.forEach((component) => {
