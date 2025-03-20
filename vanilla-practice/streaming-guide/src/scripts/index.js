@@ -69,11 +69,11 @@ function onReady() {
     };
 
     // Render collection data, and modal
-    const renderCollections = (allComponents) => {
+    const renderCollections = (collections) => {
         const modalContainer = document.getElementById('modal-container');
         const componentsContainer = document.getElementById('components');
-        
-        allComponents.forEach((component) => {
+
+        collections.forEach((component, index) => {
             componentsContainer.innerHTML +=
                 `
                 <div class="component">
@@ -81,7 +81,7 @@ function onReady() {
                     <div class="shows-carousel">` +
                     component.items.map((item) => {
                         return `
-                            <div class="show" data-id="${item.id}">
+                            <div class="show" data-id="${item.id}" tabindex="${index}">
                                 <div class="image">
                                     <img src="${item.visuals.artwork.horizontal_tile.image.path}&size=${TILE_IMG_WIDTH}x${TILE_IMG_HEIGHT}&format=${TILE_IMG_FORMAT}" />
                                     <div class="overlay">
@@ -101,9 +101,9 @@ function onReady() {
                 </div>`;
         });
 
-        // Function to filter allComponents array and populate modal content
-        const populateModalContent = (allComponents, id) => {
-            const component = allComponents.find((component) => {
+        // Function to filter collections array and populate modal content
+        const populateModalContent = (collections, id) => {
+            const component = collections.find((component) => {
                 return component.items.find((item) => item.id === id);
             });
 
@@ -114,15 +114,29 @@ function onReady() {
             `;
         };
 
-        // Add event listener to .show elements
+        // Add event listener to .show elements, fire modal for id
         const showElements = document.querySelectorAll('.show');
         showElements.forEach((showElement) => {
-            showElement.addEventListener('click', (event) => {
+            showElement.addEventListener('click', () => {
                 const id = showElement.getAttribute('data-id');
                 modalContainer.style.display = 'block';
 
                 // Call the function to populate modal content
-                populateModalContent(allComponents, id);
+                populateModalContent(collections, id);
+            });
+
+            showElement.addEventListener('keyup', (event) => {
+                if (event.key === 'Enter') {
+                    const id = showElement.getAttribute('data-id');
+                    modalContainer.style.display = 'block';
+
+                    // Call the function to populate modal content
+                    populateModalContent(collections, id);
+                }
+
+                if (event.key === 'Escape' && modalContainer.style.display !== 'none') {
+                    modalContainer.style.display = 'none';
+                }
             });
         });
     };

@@ -104,6 +104,11 @@
                 }
             }
         }
+
+        &:focus-visible {
+            outline: none;
+            box-shadow: none;
+        }
     }
 }
 .shows-carousel::-webkit-scrollbar {
