@@ -68,9 +68,11 @@ function onReady() {
         );
     };
 
-    // Render collection data
+    // Render collection data, and modal
     const renderCollections = (allComponents) => {
+        const modalContainer = document.getElementById('modal-container');
         const componentsContainer = document.getElementById('components');
+        
         allComponents.forEach((component) => {
             componentsContainer.innerHTML +=
                 `
@@ -79,7 +81,7 @@ function onReady() {
                     <div class="shows-carousel">` +
                     component.items.map((item) => {
                         return `
-                            <div class="show">
+                            <div class="show" data-id="${item.id}">
                                 <div class="image">
                                     <img src="${item.visuals.artwork.horizontal_tile.image.path}&size=${TILE_IMG_WIDTH}x${TILE_IMG_HEIGHT}&format=${TILE_IMG_FORMAT}" />
                                     <div class="overlay">
@@ -97,6 +99,31 @@ function onReady() {
                     }).join('');
                     +`</div>
                 </div>`;
+        });
+
+        // Function to filter allComponents array and populate modal content
+        const populateModalContent = (allComponents, id) => {
+            const component = allComponents.find((component) => {
+                return component.items.find((item) => item.id === id);
+            });
+
+            const modalContent = document.getElementById('modal-content');
+            modalContent.innerHTML = `
+                <h2>${component.items.find((item) => item.id === id).visuals.headline}</h2>
+                <p>${component.items.find((item) => item.id === id).entity_metadata.description}</p>
+            `;
+        };
+
+        // Add event listener to .show elements
+        const showElements = document.querySelectorAll('.show');
+        showElements.forEach((showElement) => {
+            showElement.addEventListener('click', (event) => {
+                const id = showElement.getAttribute('data-id');
+                modalContainer.style.display = 'block';
+
+                // Call the function to populate modal content
+                populateModalContent(allComponents, id);
+            });
         });
     };
 }
