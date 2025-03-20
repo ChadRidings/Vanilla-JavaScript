@@ -20,46 +20,53 @@ function onReady() {
     fetch(API_URL)
         .then((response) => response.json())
         .then((data) => {
-            const components = [...data.components];
-
-            // Filter out components with no items
-            const filteredComponents = components.filter((component) => component.items.length > 0);
-            const missingCollections = components.filter((component) => component.items.length === 0);
-            let allComponents = [...filteredComponents];
-
-            async function processMissingCollection() {
-                // use promises to assure new collections have been added to the allComponents array before calling renderCollections
-                const promises = missingCollections.map((collection) => {
-                    return fetch(collection.href)
-                        .then((response) => response.json())
-                        .then((data) => {
-                            allComponents.push(data);
-                        }).catch((error) => {
-                            console.error(error);
-                        });
-                });
-              
-                await Promise.all(promises);
-                renderCollections(allComponents);
-            }
-              
-            processMissingCollection();
-
-            // Build the guide and components if data is available
             if (data) {
-                const guideContainer = document.getElementById('guide');
-                guideContainer.insertAdjacentHTML(
-                    'afterbegin',
-                    `
-                    <div class="heading">
-                        <h1 class="screen-title">${data.name}</h1>
-                    </div>
-                `
-                );
+                processData(data);
             }
         }).catch((error) => {
             console.error(error);
         });
+
+    const processData = (data) => {
+        renderHeading(data);
+        
+        const components = [...data.components];
+
+        // Filter components with and without items
+        const filteredComponents = components.filter((component) => component.items.length > 0);
+        const missingCollections = components.filter((component) => component.items.length === 0);
+        let allComponents = [...filteredComponents];
+
+        async function processMissingCollection() {
+            // use promises to assure new collections have been added to the allComponents array before calling renderCollections
+            const promises = missingCollections.map((collection) => {
+                return fetch(collection.href)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        allComponents.push(data);
+                    }).catch((error) => {
+                        console.error(error);
+                    });
+            });
+            
+            await Promise.all(promises);
+            renderCollections(allComponents);
+        }
+            
+        processMissingCollection();
+    }
+
+    const renderHeading = (data) => {
+        const guideContainer = document.getElementById('guide');
+        guideContainer.insertAdjacentHTML(
+            'afterbegin',
+            `
+            <div class="heading">
+                <h1 class="screen-title">${data.name}</h1>
+            </div>
+        `
+        );
+    };
 
     const renderCollections = (allComponents) => {
         const componentsContainer = document.getElementById('components');
