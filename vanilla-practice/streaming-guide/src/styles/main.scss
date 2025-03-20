@@ -1,6 +1,6 @@
-@import './reset.scss';
-@import './variables.scss';
-@import './fonts.scss';
+@import './reset';
+@import './variables';
+@import './fonts';
 
 body {
     background-color: #000;
@@ -33,6 +33,9 @@ body {
     overflow: hidden;
     padding: 20px;
     width: 100%;
+    top: 0;
+    left: 0;
 }
 
-@import './shows.scss';
+@import './shows';
+@import './modal'
