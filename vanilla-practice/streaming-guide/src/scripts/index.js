@@ -57,7 +57,7 @@ function onReady() {
                                         </div>
                                         <div class="show-info">
                                             <div class="show-name">${item.visuals.headline}</div>
-                                            <div class="description">${item.visuals.body}</div>
+                                            <div class="show-rating">${item.entity_metadata.rating.code}</div>
                                         </div>
                                     </div>
                                 `;
