@@ -29,7 +29,7 @@ function onReady() {
 
     const processData = (data) => {
         renderHeading(data);
-        
+
         const components = [...data.components];
 
         // Filter components with and without items
@@ -89,7 +89,7 @@ function onReady() {
                                 </div>
                                 <div class="show-info">
                                     <div class="show-name">${item.visuals.headline}</div>
-                                    <div class="show-rating">${item.entity_metadata.rating.code ? item.entity_metadata.rating.code : ''}</div>
+                                    <div class="show-rating">${item.entity_metadata.rating.code ? item.entity_metadata.rating.code : '&nbsp;'}</div>
                                 </div>
                             </div>
                         `;

@@ -33,10 +33,14 @@
             margin: 0 0 5px;
             position: relative;
             width: $tile-width;
+            height: $tile-height;
+            transition: all 0.5s ease-in-out;
 
             img {
+                height: $tile-height;
                 width: $tile-width;
                 border-radius: 5px;
+                transition: all 0.5s ease-in-out;
             }
 
             .overlay {
@@ -60,8 +64,17 @@
             }
         }
 
-        &:hover {
+        &:hover,
+        &:focus {
             .image {
+                width: calc($tile-width + 20px);
+                height: calc($tile-height + 20px);
+
+                img {
+                    width: calc($tile-width + 20px);
+                    height: calc($tile-height + 20px);
+                }
+
                 .overlay {
                     display: flex;
                     flex-direction: row;
@@ -87,6 +100,7 @@
             .show-info {
                 .show-name {
                     color: $plain-text;
+                    font-weight: bold;
                 }
             }
         }
