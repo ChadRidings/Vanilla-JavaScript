@@ -19,6 +19,7 @@
         background-color: $black;
         border: $thin-hulu-border;
         width: 80%;
+        max-width: $max-width;
         padding: 20px;
 
         .container-50 {
@@ -35,8 +36,9 @@
 
             .watermark {
                 position: absolute;
-                bottom: 20px;
-                right: 20px;
+                bottom: 0;
+                right: 0;
+                margin: 10px;
             }
         }
 

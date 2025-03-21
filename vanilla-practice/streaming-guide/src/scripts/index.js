@@ -6,8 +6,10 @@ import {
     SMALL_TILE_JPG,
     LARGE_TILE_JPG,
     SMALL_WATERMARK,
-    LARGE_WATERMARK
+    LARGE_WATERMARK,
+    HERO_SIZE
 } from './constants';
+import logoPath from '../assets/images/hulu.png';
 
 /**
  * When the DOM is ready
@@ -58,15 +60,16 @@ function onReady() {
 
     // Render heading data
     const renderHeading = (data) => {
-        const guideContainer = document.getElementById('guide');
-        guideContainer.insertAdjacentHTML(
-            'afterbegin',
+        const headerContainer = document.getElementById('header');
+        headerContainer.innerHTML +=
             `
-            <div class="heading">
-                <h1 class="screen-title">${data.name}</h1>
+            <div class="banner" style="background-image: url(${data.artwork['detail.horizontal.hero'].path}${HERO_SIZE})">
+                <div class="overlay">
+                    <img src="${logoPath}" alt="hulu logo" class="logo" />
+                    <h1>${data.name}</h1>
+                </div>
             </div>
-        `
-        );
+        `;
     };
 
     // Render collection data (also includes modal functionality)

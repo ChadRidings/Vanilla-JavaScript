@@ -1,14 +1,3 @@
-/*
-    SHOWS CAROUSEL
-*/
-
-.screen-title {
-    color: $hulu-green;
-    font-family: $heading-font-families;
-    font-size: 2em;
-    text-align: center;
-}
-
 .shows-carousel {
     display: flex;
     flex-direction: row;
@@ -49,8 +38,9 @@
 
             .watermark {
                 position: absolute;
-                bottom: 5px;
-                right: 10px;
+                bottom: 0;
+                right: 0;
+                margin: 0 10px 5px;
             }
         }
 
