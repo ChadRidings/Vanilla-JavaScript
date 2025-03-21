@@ -163,17 +163,13 @@ function onReady() {
             showElement.addEventListener('click', () => {
                 const id = showElement.getAttribute('data-id');
                 modalContainer.style.display = 'flex';
-
-                // Call the function to populate modal content
                 populateModalContent(collections, id);
             });
 
-            showElement.addEventListener('keyup', (event) => {
+            showElement.addEventListener('keydown', (event) => {
                 if (event.key === 'Enter') {
                     const id = showElement.getAttribute('data-id');
                     modalContainer.style.display = 'flex';
-
-                    // Call the function to populate modal content
                     populateModalContent(collections, id);
                 }
 
