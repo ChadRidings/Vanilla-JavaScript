@@ -1,3 +1,12 @@
+/*
+    ADJUSTMENTS TO MAIN CONTAINER
+*/
+
+.main-container {
+    background: #0a0a0a url('../../assets/images/gradient-background.png') repeat-x top center fixed !important;
+    background-size: cover;
+}
+
 /* 
     NAVIGATION BAR
 */
