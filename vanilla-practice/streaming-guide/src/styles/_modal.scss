@@ -26,8 +26,18 @@
             align-self: flex-start;
         }
 
-        .image img {
-            width: 100%;
+        .image {
+            position: relative;
+
+            .tile-graphic {
+                width: 100%;
+            }
+
+            .watermark {
+                position: absolute;
+                bottom: 20px;
+                right: 20px;
+            }
         }
 
         .info {

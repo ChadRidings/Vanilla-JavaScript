@@ -3,9 +3,10 @@
 import '../styles/main.scss';
 import {
     API_URL,
-    TILE_IMG_WIDTH,
-    TILE_IMG_HEIGHT,
-    TILE_IMG_FORMAT
+    SMALL_TILE_JPG,
+    LARGE_TILE_JPG,
+    SMALL_WATERMARK,
+    LARGE_WATERMARK
 } from './constants';
 
 /**
@@ -83,7 +84,7 @@ function onReady() {
                         return `
                             <div class="show" data-id="${item.id}" tabindex="${index}">
                                 <div class="image">
-                                    <img class="tile-graphic" src="${item.visuals.artwork.horizontal_tile.image.path}&size=${TILE_IMG_WIDTH}x${TILE_IMG_HEIGHT}&format=${TILE_IMG_FORMAT}" />
+                                    <img class="tile-graphic" src="${item.visuals.artwork.horizontal_tile.image.path}${SMALL_TILE_JPG}" />
                                     <div class="overlay">
                                         <a href="#" name="${item.visuals.headline}">
                                         <i class="bi bi-play-fill"></i>
@@ -91,7 +92,7 @@ function onReady() {
                                     </div>
                                     ${item.visuals.primary_branding?.artwork['brand.watermark.bottom.right'].path ? `
                                         <div class="watermark">
-                                            <img src="${item.visuals.primary_branding.artwork['brand.watermark.bottom.right'].path}&size=80x40&format=png" />
+                                            <img src="${item.visuals.primary_branding.artwork['brand.watermark.bottom.right'].path}${SMALL_WATERMARK}" />
                                         </div>
                                     ` : ''}
                                 </div>
@@ -112,17 +113,24 @@ function onReady() {
                 return component.items.find((item) => item.id === id);
             });
 
-            const headline = component.items.find((item) => item.id === id).visuals.headline;
-            const subtitle = component.items.find((item) => item.id === id).visuals.subtitle;
-            const description = component.items.find((item) => item.id === id).visuals.body;
-            const actionText = component.items.find((item) => item.id === id).visuals.action_text;
-            const imagePath = component.items.find((item) => item.id === id).visuals.artwork.horizontal_tile.image.path;
+            const modalItem = component.items.find((item) => item.id === id);
+            const headline = modalItem.visuals.headline;
+            const subtitle = modalItem.visuals.subtitle;
+            const description = modalItem.visuals.body;
+            const actionText = modalItem.visuals.action_text;
+            const imagePath = modalItem.visuals.artwork.horizontal_tile.image.path;
+            const watermarkPath = modalItem.visuals.primary_branding?.artwork['brand.watermark.bottom.right'].path;
 
             const modalContent = document.getElementById('modal-content');
             modalContent.innerHTML = `
                 <div class="container-50">
                     <div class="image">
-                        <img src="${imagePath}&size=600x300&format=jpeg" />
+                        <img src="${imagePath}${LARGE_TILE_JPG}" class="tile-graphic" />
+                        ${watermarkPath ? `
+                            <div class="watermark">
+                                <img src="${watermarkPath}${LARGE_WATERMARK}" />
+                            </div>
+                        ` : ''}
                     </div>
                 </div>
                 <div class="container-50">
