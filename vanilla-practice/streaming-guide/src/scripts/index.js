@@ -112,7 +112,10 @@ function onReady() {
         });
 
         // Function to filter collections array and populate modal content
+        let previousFocusedElement;
         const populateModalContent = (collections, id) => {
+            previousFocusedElement = document.activeElement;
+
             const component = collections.find((component) => {
                 return component.items.find((item) => item.id === id);
             });
@@ -154,6 +157,9 @@ function onReady() {
             const modalClose = document.getElementById('close-modal');
             modalClose.addEventListener('click', () => {
                 modalContainer.style.display = 'none';
+                if (previousFocusedElement) {
+                    previousFocusedElement.focus();
+                }
             });
         };
 
