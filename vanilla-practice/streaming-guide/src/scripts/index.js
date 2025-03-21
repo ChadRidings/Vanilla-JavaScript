@@ -68,7 +68,7 @@ function onReady() {
         );
     };
 
-    // Render collection data, and modal
+    // Render collection data (also includes modal functionality)
     const renderCollections = (collections) => {
         const modalContainer = document.getElementById('modal-container');
         const componentsContainer = document.getElementById('components');
@@ -107,11 +107,33 @@ function onReady() {
                 return component.items.find((item) => item.id === id);
             });
 
+            const headline = component.items.find((item) => item.id === id).visuals.headline;
+            const subtitle = component.items.find((item) => item.id === id).visuals.subtitle;
+            const description = component.items.find((item) => item.id === id).visuals.body;
+            const imagePath = component.items.find((item) => item.id === id).visuals.artwork.horizontal_tile.image.path;
+
             const modalContent = document.getElementById('modal-content');
             modalContent.innerHTML = `
-                <h2>${component.items.find((item) => item.id === id).visuals.headline}</h2>
-                <p>${component.items.find((item) => item.id === id).entity_metadata.description}</p>
+                <div class="container-50">
+                    <div class="image">
+                        <img src="${imagePath}&size=600x300&format=jpeg" />
+                    </div>
+                </div>
+                <div class="container-50">
+                    <div class="info">
+                        <div class="close" id="close-modal"><i class="bi bi-x-circle"></i></div>
+                        <h2>${headline ? headline : ''}</h2>
+                        <p>${description ? description : ''}</p>
+                        <p>${subtitle ? subtitle : ''}</p>
+                    </div>
+                </div>
             `;
+
+            // if modal close button is clicked
+            const modalClose = document.getElementById('close-modal');
+            modalClose.addEventListener('click', () => {
+                modalContainer.style.display = 'none';
+            });
         };
 
         // Add event listener to .show elements, fire modal for id
@@ -119,7 +141,7 @@ function onReady() {
         showElements.forEach((showElement) => {
             showElement.addEventListener('click', () => {
                 const id = showElement.getAttribute('data-id');
-                modalContainer.style.display = 'block';
+                modalContainer.style.display = 'flex';
 
                 // Call the function to populate modal content
                 populateModalContent(collections, id);
@@ -128,7 +150,7 @@ function onReady() {
             showElement.addEventListener('keyup', (event) => {
                 if (event.key === 'Enter') {
                     const id = showElement.getAttribute('data-id');
-                    modalContainer.style.display = 'block';
+                    modalContainer.style.display = 'flex';
 
                     // Call the function to populate modal content
                     populateModalContent(collections, id);

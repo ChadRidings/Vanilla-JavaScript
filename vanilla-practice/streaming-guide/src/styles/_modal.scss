@@ -1,4 +1,7 @@
 .modal-container {
+    display: none;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
@@ -6,10 +9,48 @@
     height: 100vh;
     z-index: 1000;
     overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.95);
-    display: none;
+    background-color: $dark-overlay;
 
     .modal-content {
         display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $black;
+        border: $thin-hulu-border;
+        width: 80%;
+        padding: 20px;
+
+        .container-50 {
+            flex-basis: 50%;
+            align-self: flex-start;
+        }
+
+        .image img {
+            width: 100%;
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 20px;
+            position: relative;
+
+            .close {
+                position:absolute;
+                top: 0;
+                right: 0;
+                
+                i {
+                    font-size: 1.5em;
+
+                    &:hover {
+                        color: $hulu-green;
+                    }
+                }
+            }
+        }
     }
 }
