@@ -89,9 +89,7 @@ function onReady() {
                                 <div class="image">
                                     <img class="tile-graphic" src="${item.visuals.artwork.horizontal_tile.image.path}${SMALL_TILE_JPG}" />
                                     <div class="overlay">
-                                        <a href="#" name="${item.visuals.headline}">
-                                        <i class="bi bi-play-fill"></i>
-                                        </a>
+                                        <i class="bi bi-plus-circle"></i>
                                     </div>
                                     ${item.visuals.primary_branding?.artwork['brand.watermark.bottom.right'].path ? `
                                         <div class="watermark">
