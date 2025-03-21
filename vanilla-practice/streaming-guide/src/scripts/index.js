@@ -10,6 +10,7 @@ import {
     HERO_SIZE
 } from './constants';
 import logoPath from '../assets/images/hulu.png';
+import missingTileImage from '../assets/images/missing.jpg';
 
 /**
  * When the DOM is ready
@@ -87,7 +88,9 @@ function onReady() {
                         return `
                             <div class="show" data-id="${item.id}" tabindex="${index}">
                                 <div class="image">
-                                    <img class="tile-graphic" src="${item.visuals.artwork.horizontal_tile.image.path}${SMALL_TILE_JPG}" />
+                                    <img class="tile-graphic" 
+                                        src="${item.visuals.artwork.horizontal_tile.image.path}${SMALL_TILE_JPG}" 
+                                        onError="this.onerror=null; this.src='${missingTileImage}';" />
                                     <div class="overlay">
                                         <i class="bi bi-plus-circle"></i>
                                     </div>
@@ -126,7 +129,9 @@ function onReady() {
             modalContent.innerHTML = `
                 <div class="container-50">
                     <div class="image">
-                        <img src="${imagePath}${LARGE_TILE_JPG}" class="tile-graphic" />
+                        <img
+                            src="${imagePath}${LARGE_TILE_JPG}" class="tile-graphic"
+                            onError="this.onerror=null; this.src='${missingTileImage}';"/>
                         ${watermarkPath ? `
                             <div class="watermark">
                                 <img src="${watermarkPath}${LARGE_WATERMARK}" />
