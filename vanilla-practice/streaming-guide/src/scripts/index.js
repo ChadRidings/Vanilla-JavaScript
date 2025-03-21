@@ -83,12 +83,17 @@ function onReady() {
                         return `
                             <div class="show" data-id="${item.id}" tabindex="${index}">
                                 <div class="image">
-                                    <img src="${item.visuals.artwork.horizontal_tile.image.path}&size=${TILE_IMG_WIDTH}x${TILE_IMG_HEIGHT}&format=${TILE_IMG_FORMAT}" />
+                                    <img class="tile-graphic" src="${item.visuals.artwork.horizontal_tile.image.path}&size=${TILE_IMG_WIDTH}x${TILE_IMG_HEIGHT}&format=${TILE_IMG_FORMAT}" />
                                     <div class="overlay">
                                         <a href="#" name="${item.visuals.headline}">
                                         <i class="bi bi-play-fill"></i>
                                         </a>
                                     </div>
+                                    ${item.visuals.primary_branding?.artwork['brand.watermark.bottom.right'].path ? `
+                                        <div class="watermark">
+                                            <img src="${item.visuals.primary_branding.artwork['brand.watermark.bottom.right'].path}&size=80x40&format=png" />
+                                        </div>
+                                    ` : ''}
                                 </div>
                                 <div class="show-info">
                                     <div class="show-name">${item.visuals.headline}</div>
@@ -110,6 +115,7 @@ function onReady() {
             const headline = component.items.find((item) => item.id === id).visuals.headline;
             const subtitle = component.items.find((item) => item.id === id).visuals.subtitle;
             const description = component.items.find((item) => item.id === id).visuals.body;
+            const actionText = component.items.find((item) => item.id === id).visuals.action_text;
             const imagePath = component.items.find((item) => item.id === id).visuals.artwork.horizontal_tile.image.path;
 
             const modalContent = document.getElementById('modal-content');
@@ -122,9 +128,10 @@ function onReady() {
                 <div class="container-50">
                     <div class="info">
                         <div class="close" id="close-modal"><i class="bi bi-x-circle"></i></div>
-                        <h2>${headline ? headline : ''}</h2>
+                        <h2 class="heading">${headline ? headline : ''}</h2>
                         <p>${description ? description : ''}</p>
                         <p>${subtitle ? subtitle : ''}</p>
+                        <button>${actionText} <i class="bi bi-play-fill"></i></button>
                     </div>
                 </div>
             `;

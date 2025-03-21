@@ -36,7 +36,7 @@
             height: $tile-height;
             transition: all 0.5s ease-in-out;
 
-            img {
+            .tile-graphic {
                 height: $tile-height;
                 width: $tile-width;
                 border-radius: 5px;
@@ -45,6 +45,12 @@
 
             .overlay {
                 display: none;
+            }
+
+            .watermark {
+                position: absolute;
+                bottom: 5px;
+                right: 5px;
             }
         }
 
@@ -70,7 +76,7 @@
                 width: calc($tile-width + 20px);
                 height: calc($tile-height + 20px);
 
-                img {
+                .tile-graphic {
                     width: calc($tile-width + 20px);
                     height: calc($tile-height + 20px);
                 }

@@ -37,5 +37,20 @@ body {
     left: 0;
 }
 
+button {
+    background-color: $hulu-green;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 250ms, color 250ms;
+
+    &:hover {
+        background-color: rgba(28, 231, 131, 0.6);
+    }
+}
+
 @import './shows';
 @import './modal'
