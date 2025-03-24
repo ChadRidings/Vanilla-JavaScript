@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 280px;
+    height: $banner-height;
     background-size: cover;
     background-position: center;
     position: relative;
@@ -21,7 +21,7 @@
         background-color: $banner-overlay;
 
         .logo {
-            width: 300px;
+            width: $logo-large;
         }
     }
 }
