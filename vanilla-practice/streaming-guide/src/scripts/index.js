@@ -16,8 +16,6 @@ import missingTileImage from '../assets/images/missing.jpg';
  * When the DOM is ready
  */
 function onReady() {
-    // This holds the clean data we serve to the render
-    let allComponents = [];
 
     // Fetch and set initial data
     fetch(API_URL)
@@ -38,7 +36,6 @@ function onReady() {
         const components = [...data.components];
         const filteredComponents = components.filter((component) => component.items.length > 0);
         const missingCollections = components.filter((component) => component.items.length === 0);
-        allComponents = [...filteredComponents];
 
         const processMissingCollection = async () => {
             // use promises to assure new collections have been added to the allComponents array before calling renderCollections
@@ -46,14 +43,14 @@ function onReady() {
                 try {
                     const response = await fetch(collection.href);
                     const data = await response.json();
-                    allComponents.push(data);
+                    filteredComponents.push(data);
                 } catch (error) {
                     console.error(error);
                 }
             });
             
             await Promise.all(promises);
-            renderCollections(allComponents);
+            renderCollections(filteredComponents);
         }
 
         processMissingCollection();
